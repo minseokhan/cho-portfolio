@@ -1,26 +1,90 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg: #0a0a0a;
+  --color-bg-2: #111110;
+  --color-surface: #161513;
+  --color-surface-2: #1c1b18;
+  --color-ink: #ededeb;
+  --color-ink-2: #9aa3b2;
+  --color-ink-3: #3d6d99;
+  --color-line: #1d1c19;
+  --color-line-2: #26241f;
+  --color-line-3: #34322b;
+  --color-accent: #18A8F1;
+  --color-accent-2: #4DBEF5;
+  --font-display: "Inter Tight", "Pretendard", -apple-system, sans-serif;
+  --font-body: "Pretendard", "Inter Tight", -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* === Base resets === */
+html { scroll-behavior: smooth; }
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+em, i { font-style: normal; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+::selection { background: var(--color-accent); color: #111; }
+
+/* === Scroll Reveal (attribute selectors - can't do in Tailwind) === */
+[data-reveal] {
+  opacity: 0; transform: translateY(28px);
+  transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1);
+  will-change: opacity, transform;
+}
+[data-reveal].in-view { opacity: 1; transform: translateY(0); }
+[data-reveal-delay="1"].in-view { transition-delay: 80ms; }
+[data-reveal-delay="2"].in-view { transition-delay: 160ms; }
+[data-reveal-delay="3"].in-view { transition-delay: 240ms; }
+[data-reveal-delay="4"].in-view { transition-delay: 320ms; }
+[data-reveal-delay="5"].in-view { transition-delay: 400ms; }
+[data-reveal-delay="6"].in-view { transition-delay: 480ms; }
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] { opacity: 1; transform: none; transition: none; }
+}
+
+/* === Keyframes === */
+@keyframes glowDrift1 { 0% { transform: translate(0,0) scale(1); } 100% { transform: translate(-60px,80px) scale(1.15); } }
+@keyframes glowDrift2 { 0% { transform: translate(0,0) scale(1.1); } 100% { transform: translate(80px,-60px) scale(.95); } }
+@keyframes chevBounce { 0% { transform: translateY(-4px); opacity: .4; } 50% { transform: translateY(4px); opacity: 1; } 100% { transform: translateY(-4px); opacity: .4; } }
+@keyframes scrollHintFadeIn { from { opacity: 0; transform: translate(-50%,12px); } to { opacity: 1; transform: translate(-50%,0); } }
+@keyframes taskBodyIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .glow-1, .glow-2, .chev-bounce { animation: none !important; }
+  .scroll-hint-anim { opacity: 1 !important; animation: none !important; }
+}
+
+/* === Pseudo-elements that can't be expressed in Tailwind === */
+.section-num-line::before {
+  content: ""; width: 36px; height: 1px; background: currentColor;
+}
+.quote-mark::before {
+  content: "\201C"; display: block; font-weight: 500;
+  font-size: 48px; line-height: .5; color: var(--color-accent); margin-bottom: 18px;
+}
+.bullet-item::before {
+  content: "\2014"; color: var(--color-accent); font-family: var(--font-mono);
+}
+
+/* === Tool row responsive grid areas (complex grid - keep in CSS) === */
+@media (max-width: 720px) {
+  .tool-row-grid {
+    grid-template-columns: 40px 1fr !important;
+    grid-template-areas: "l i" "t t" ". v";
+    gap: 10px;
+  }
+  .tool-row-grid .tool-area-logo { grid-area: l; }
+  .tool-row-grid .tool-area-info { grid-area: i; }
+  .tool-row-grid .tool-area-tag { grid-area: t; justify-self: start; }
+  .tool-row-grid .tool-area-level { grid-area: v; }
+}
+
+/* === Channel nth-child (can't do in Tailwind) === */
+@media (max-width: 760px) {
+  .channel-grid > :nth-child(2n) { border-right: 0 !important; }
 }
