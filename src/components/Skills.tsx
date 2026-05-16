@@ -38,7 +38,7 @@ export default function Skills() {
           className="font-display font-medium text-[clamp(28px,4vw,46px)] tracking-[-0.035em] leading-[1.02] m-0 text-ink whitespace-pre-line"
           data-reveal
         >
-          기획·데이터·협업을 <span className="text-accent">한 번에</span> <br /> 끌고 갑니다.
+          <span className="text-accent">기획</span>과 <span className="text-accent">협업</span>에 필요한 툴을 사용합니다.
         </h2>
       </SectionHead>
 
@@ -64,7 +64,7 @@ export default function Skills() {
       </div>
       */}
 
-      {/* Soft Skills */}
+      {/* Soft Skills - 주석 처리
       <SubTitleRow title="Soft Skills" meta="04" className="mt-20" />
       <div className="flex flex-wrap gap-2.5">
         {SOFT_SKILLS.map((s, i) => (
@@ -81,9 +81,10 @@ export default function Skills() {
           </div>
         ))}
       </div>
+      */}
 
       {/* Tools */}
-      <SubTitleRow title="Tools" meta="07" className="mt-20" />
+      <SubTitleRow title="Tools" meta="07" className="mt-12" />
       <div className="bg-surface border border-line rounded-[14px] overflow-hidden">
         {TOOLS.map((t, i) => (
           <div
