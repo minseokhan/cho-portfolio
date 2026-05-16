@@ -14,7 +14,7 @@ export default function Projects() {
     >
       <SectionHead num="03 — Project">
         <h2
-          className="font-display font-medium text-[clamp(34px,5vw,60px)] tracking-[-0.035em] leading-[1.02] m-0 text-ink whitespace-pre-line"
+          className="font-display font-medium text-[clamp(28px,4vw,46px)] tracking-[-0.035em] leading-[1.02] m-0 text-ink whitespace-pre-line"
           data-reveal
         >
           기획부터 배포까지
@@ -37,7 +37,7 @@ export default function Projects() {
               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[rgba(20,18,15,.55)]" />
             </div>
             <div className="p-[24px_26px] flex flex-col flex-1">
-              <div className="flex justify-between items-baseline font-mono text-[11px] tracking-[0.12em] uppercase text-ink-3 mb-4">
+              <div className="flex justify-between items-baseline font-mono text-[11px] tracking-[0.12em] uppercase text-accent-2 mb-4">
                 <span className="inline-flex items-center gap-2.5 text-ink-2">
                   <span>PM (팀 리더)</span>
                 </span>
@@ -67,7 +67,7 @@ export default function Projects() {
               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[rgba(20,18,15,.55)]" />
             </div>
             <div className="p-[24px_26px] flex flex-col flex-1">
-              <div className="flex justify-between items-baseline font-mono text-[11px] tracking-[0.12em] uppercase text-ink-3 mb-4">
+              <div className="flex justify-between items-baseline font-mono text-[11px] tracking-[0.12em] uppercase text-accent-2 mb-4">
                 <span className="inline-flex items-center gap-2.5 text-ink-2">
                   <span>Plan &amp; Design</span>
                 </span>

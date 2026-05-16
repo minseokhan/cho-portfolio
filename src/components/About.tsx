@@ -15,7 +15,7 @@ export default function About() {
     >
       <SectionHead num="04 — About">
         <h2
-          className="font-display font-medium text-[clamp(34px,5vw,60px)] tracking-[-0.035em] leading-[1.02] m-0 text-ink whitespace-pre-line"
+          className="font-display font-medium text-[clamp(28px,4vw,46px)] tracking-[-0.035em] leading-[1.02] m-0 text-ink whitespace-pre-line"
           data-reveal
         >
           제품을 만드는 데 <span className="text-accent">강한 지점들</span>.

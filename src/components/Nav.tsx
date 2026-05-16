@@ -25,7 +25,7 @@ export default function Nav() {
           className="font-display text-[14.5px] font-medium tracking-[-0.015em] inline-flex items-center gap-3 text-ink"
         >
           <span className="w-1.5 h-1.5 bg-accent rounded-full" />
-          박초희
+          박초희 Portfolio
         </a>
         <div className="flex gap-8 font-mono text-[11.5px] tracking-[0.1em] text-ink-2 max-[720px]:hidden">
           <a href="#profile" className="py-1 transition-colors duration-150 hover:text-ink">Profile</a>

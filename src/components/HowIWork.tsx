@@ -1,12 +1,17 @@
 import SectionHead from "./SectionHead";
 
 const PRINCIPLES = [
-  { num: "P01", title: "문제의 본질부터 정의한다", desc: "현상이 아니라 원인을 묻습니다. 무엇을 만들지보다 무엇이 문제인지에 시간을 더 씁니다." },
-  { num: "P02", title: "효율적인 방법을 집요하게 찾는다", desc: '"어떻게 하면 더 효율적으로 해결할 수 있을까"를 매번 다시 묻습니다.' },
-  { num: "P03", title: "혼자보다 함께 만든다", desc: "혼자보다는 남들과 함께할 때 시너지를 더 잘 발휘한다고 믿습니다." },
-  { num: "P04", title: "새 환경에 두려움 없이 도전한다", desc: '"성장과 편안함은 공존할 수 없다"는 모토로, 새로운 환경에 빠르게 적응합니다.' },
-  { num: "P05", title: "꼼꼼하게 끝까지 책임진다", desc: "실수가 발생하면 안 되는 운영 업무에서 꼼꼼함과 정확한 일처리를 습관화했습니다." },
-  { num: "P06", title: "데이터로 다시 검증한다", desc: "만든 결과물의 효용을 데이터로 확인하고, 부족한 부분은 다음 버전에 반영합니다." },
+  { num: "01", lines: [
+    <>부여된 업무에 <mark>&apos;왜 해야하는가?&apos;</mark>에 대한 답을 먼저 찾고 시작해요.</>,
+    <>일의 과정에서 <mark>재미와 의미</mark>를 찾아가려 노력합니다.</>,
+  ]},
+  { num: "02", lines: [
+    <>업무 처리 속도가 빠르면서도, <mark>꼼꼼함</mark>을 놓치지 않으려 노력해요.</>,
+  ]},
+  { num: "03", lines: [
+    <>사소한 의견이라도 <mark>경청하고 조율</mark>하며, 팀의 성공적인 결과를 위해 협력해요.</>,
+    <>갈등이 생기면 최대한 <mark>합리적인 방향</mark>으로 결론을 내리려 노력합니다!</>,
+  ]},
 ];
 
 export default function HowIWork() {
@@ -15,12 +20,12 @@ export default function HowIWork() {
       className="py-[clamp(100px,14vh,180px)] border-t border-line relative max-w-[1180px] mx-auto px-[clamp(28px,8vw,120px)]"
       id="howiwork"
     >
-      <SectionHead num="06 — How I Work">
+      <SectionHead num="04 — How I Work">
         <h2
-          className="font-display font-medium text-[clamp(34px,5vw,60px)] tracking-[-0.035em] leading-[1.02] m-0 text-ink whitespace-pre-line"
+          className="font-display font-medium text-[clamp(28px,4vw,46px)] tracking-[-0.035em] leading-[1.02] m-0 text-ink whitespace-pre-line"
           data-reveal
         >
-          매번 계속해서 확인하는 <br /> <span className="text-accent">여섯 가지</span> 원칙.
+          저는 <span className="text-accent">업무</span>를 할 때 이렇게 해요!
         </h2>
       </SectionHead>
 
@@ -32,11 +37,12 @@ export default function HowIWork() {
             data-reveal
             data-reveal-delay={String(i + 1)}
           >
-            <div className="font-mono text-[11px] text-accent tracking-[0.18em]">{p.num}</div>
-            <h4 className="font-display text-[18px] font-medium tracking-[-0.02em] mt-3.5 mb-2.5 text-ink">
-              {p.title}
-            </h4>
-            <p className="text-[13.5px] text-ink-2 leading-[1.6] m-0">{p.desc}</p>
+            <div className="font-mono text-[15px] font-medium text-accent-2 tracking-[0.1em]">{p.num}</div>
+            <div className="flex flex-col gap-3 mt-3.5">
+              {p.lines.map((line, j) => (
+                <p key={j} className="text-[14px] text-ink leading-[1.7] m-0 [&_mark]:bg-accent/[.28] [&_mark]:text-white [&_mark]:px-1 [&_mark]:rounded [&_mark]:font-medium">{line}</p>
+              ))}
+            </div>
           </div>
         ))}
       </div>

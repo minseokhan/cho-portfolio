@@ -13,7 +13,7 @@ export default function PeriodList({ items }: { items: PeriodItem[] }) {
             i === 0 ? "" : "border-t border-line"
           } ${i === 0 ? "pt-0" : ""}`}
         >
-          <span className="font-mono text-[11px] tracking-[0.04em] text-ink-3">
+          <span className="font-mono text-[11px] tracking-[0.04em] text-accent-2 font-bold">
             {item.period}
           </span>
           <span className="text-[14px] text-ink tracking-[-0.005em] leading-[1.45]">

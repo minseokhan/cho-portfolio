@@ -15,7 +15,7 @@ export default function Testimonials() {
     >
       <SectionHead num="05 — Peer Testimonial">
         <h2
-          className="font-display font-medium text-[clamp(34px,5vw,60px)] tracking-[-0.035em] leading-[1.02] m-0 text-ink whitespace-pre-line"
+          className="font-display font-medium text-[clamp(28px,4vw,46px)] tracking-[-0.035em] leading-[1.02] m-0 text-ink whitespace-pre-line"
           data-reveal
         >
           <span className="text-accent">동료</span>의 말로 듣는 일하는 방식.

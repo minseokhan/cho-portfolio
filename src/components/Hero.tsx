@@ -38,7 +38,7 @@ export default function Hero() {
           data-reveal
           data-reveal-delay="1"
         >
-          PARKCHOHEE
+          Park ChoHee
         </h1>
         <p
           className="font-mono text-[clamp(11px,.95vw,12.5px)] tracking-[0.24em] uppercase mt-[18px] text-accent"
@@ -57,7 +57,7 @@ export default function Hero() {
       </div>
 
       {/* Meta */}
-      <div className="absolute bottom-[clamp(140px,17vh,180px)] left-0 right-0 flex justify-between items-end font-mono text-[11px] tracking-[0.14em] text-ink-3 uppercase gap-4 flex-wrap z-2 max-w-[1180px] mx-auto px-[clamp(28px,8vw,120px)]">
+      <div className="absolute bottom-[clamp(140px,17vh,180px)] left-0 right-0 flex justify-between items-end font-mono text-[11px] tracking-[0.14em] text-accent-2 uppercase gap-4 flex-wrap z-2 max-w-[1180px] mx-auto px-[clamp(28px,8vw,120px)]">
         <div data-reveal data-reveal-delay="4">
           {/* <span className="inline-block w-[7px] h-[7px] bg-[#6ade90] rounded-full mr-2.5 translate-y-px" />
           새로운 협업 문의를 받고 있습니다 */}

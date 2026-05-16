@@ -72,7 +72,7 @@ export default function Profile() {
     >
       <SectionHead num="01 — Profile">
         <h2
-          className="font-display font-medium text-[clamp(34px,5vw,60px)] tracking-[-0.035em] leading-[1.02] m-0 text-ink whitespace-pre-line"
+          className="font-display font-medium text-[clamp(28px,4vw,46px)] tracking-[-0.035em] leading-[1.02] m-0 text-ink whitespace-pre-line"
           data-reveal
         >
           {'"더 나은 방식"을\n집요하게 고민하는\n'}<span className="text-accent">서비스 기획자</span>{' 박초희입니다.'}
@@ -83,7 +83,7 @@ export default function Profile() {
         <p className="text-[clamp(14.5px,1.2vw,16px)] text-ink-2 max-w-[56ch] mt-5 leading-[1.65]" data-reveal data-reveal-delay="2">
           문제의 본질을 고민하고 더 나은 방향을 실행합니다.
         </p>
-        <p className="mt-[22px] font-mono text-[11.5px] tracking-[0.06em] text-ink-3" data-reveal data-reveal-delay="3">
+        <p className="mt-[22px] font-mono text-[11.5px] tracking-[0.06em] text-accent-2" data-reveal data-reveal-delay="3">
           Birth &middot; 2003.09.26 &nbsp;&middot;&nbsp; Location &middot; 서울시 강남구
         </p>
       </SectionHead>
@@ -95,7 +95,7 @@ export default function Profile() {
           data-reveal
           data-reveal-delay="1"
         >
-          <div className="font-mono text-[11px] text-ink-3 tracking-[0.08em] pt-[5px]">
+          <div className="font-mono text-[11px] text-accent-2 tracking-[0.08em] pt-[5px]">
             2025.04.24 — 2025.06.20
           </div>
           <div>

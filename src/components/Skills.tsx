@@ -18,13 +18,13 @@ const SOFT_SKILLS = [
 ];
 
 const TOOLS = [
-  { name: "Google Sheets", icon: "https://cdn.simpleicons.org/googlesheets/34A853", fallback: "G", desc: "데이터 관리 및 협업에 능숙합니다.", cat: "데이터 관리", catColor: "#5fb085", level: 70, delay: "1" },
-  { name: "Excel", icon: "/assets/excel.svg", fallback: "E", desc: "간단한 데이터 처리가 가능합니다.", cat: "데이터 관리", catColor: "#5fb085", level: 50, delay: "2" },
+  { name: "Google Sheets", icon: "https://cdn.simpleicons.org/googlesheets/34A853", fallback: "G", desc: "데이터 관리 및 협업에 능숙합니다.", cat: "데이터 관리", catColor: "#5fb085", level: 90, delay: "1" },
+  { name: "Excel", icon: "/assets/excel.svg", fallback: "E", desc: "간단한 데이터 처리가 가능합니다.", cat: "데이터 관리", catColor: "#5fb085", level: 80, delay: "2" },
   { name: "SQL", icon: "https://cdn.simpleicons.org/mysql/4479A1", fallback: "S", desc: "간단한 데이터 처리가 가능합니다.", cat: "데이터 관리", catColor: "#5fb085", level: 50, delay: "3" },
-  { name: "Notion", icon: "https://cdn.simpleicons.org/notion/ededeb", fallback: "N", desc: "프로젝트 관리 및 협업 툴로 자주 사용하고 있습니다.", cat: "커뮤니케이션", catColor: "#e0b066", level: 75, delay: "1" },
-  { name: "Slack", icon: "/assets/slack.svg", fallback: "S", desc: "사내 협업 툴로 현업에서 사용해 본 경험이 있습니다.", cat: "커뮤니케이션", catColor: "#e0b066", level: 75, delay: "2" },
-  { name: "Figma", icon: "https://cdn.simpleicons.org/figma/F24E1E", fallback: "F", desc: "와이어프레임 제작 및 디자이너, 개발자와의 협업에 능숙합니다.", cat: "디자인", catColor: "#d68bb5", level: 65, delay: "3" },
-  { name: "Python", icon: "https://cdn.simpleicons.org/python/3776AB", fallback: "P", desc: "데이터 분석, 데이터 시각화 등을 진행한 경험이 있습니다.", cat: "데이터 분석", catColor: "#a78bd6", level: 50, delay: "4" },
+  { name: "Notion", icon: "https://cdn.simpleicons.org/notion/ededeb", fallback: "N", desc: "프로젝트 관리 및 협업 툴로 자주 사용하고 있습니다.", cat: "협업", catColor: "#e0b066", level: 100, delay: "1" },
+  { name: "Slack", icon: "/assets/slack.svg", fallback: "S", desc: "사내 협업 툴로 현업에서 사용해 본 경험이 있습니다.", cat: "협업", catColor: "#e0b066", level: 90, delay: "2" },
+  { name: "Figma", icon: "https://cdn.simpleicons.org/figma/F24E1E", fallback: "F", desc: "와이어프레임 제작 및 디자이너, 개발자와의 협업에 능숙합니다.", cat: "디자인", catColor: "#d68bb5", level: 80, delay: "3" },
+  { name: "Python", icon: "https://cdn.simpleicons.org/python/3776AB", fallback: "P", desc: "데이터 분석, 데이터 시각화 등을 진행한 경험이 있습니다.", cat: "데이터 분석", catColor: "#a78bd6", level: 30, delay: "4" },
 ];
 
 export default function Skills() {
@@ -35,7 +35,7 @@ export default function Skills() {
     >
       <SectionHead num="02 — Skills">
         <h2
-          className="font-display font-medium text-[clamp(34px,5vw,60px)] tracking-[-0.035em] leading-[1.02] m-0 text-ink whitespace-pre-line"
+          className="font-display font-medium text-[clamp(28px,4vw,46px)] tracking-[-0.035em] leading-[1.02] m-0 text-ink whitespace-pre-line"
           data-reveal
         >
           기획·데이터·협업을 <span className="text-accent">한 번에</span> <br /> 끌고 갑니다.
@@ -87,7 +87,7 @@ export default function Skills() {
         {TOOLS.map((t, i) => (
           <div
             key={t.name}
-            className={`tool-row-grid grid grid-cols-[48px_1fr_150px_200px] gap-[18px] items-center py-3.5 px-[22px] ${
+            className={`tool-row-grid grid grid-cols-[48px_1fr_150px_200px] gap-[18px] items-center py-3 px-[22px] ${
               i > 0 ? "border-t border-line" : ""
             }`}
             data-reveal
@@ -117,12 +117,27 @@ export default function Skills() {
               </div>
               <div className="text-[12px] text-ink-2 leading-[1.45]">{t.desc}</div>
             </div>
-            <span
+            {t.name === "Figma" ? (
+              <div className="flex flex-row gap-3 justify-self-start">
+              <span
+              className="tool-area-tag font-mono text-[9.5px] tracking-[0.08em] uppercase py-1.5 px-2.5 border rounded-full bg-white/[.02] whitespace-nowrap"
+              style={{ color: t.catColor, borderColor: t.catColor }}
+            >
+              디자인
+            </span>
+              <span
+              className="tool-area-tag font-mono text-[9.5px] tracking-[0.08em] uppercase py-1.5 px-2.5 border rounded-full bg-white/[.02] whitespace-nowrap"
+              style={{ color: "#e0b066", borderColor: "#e0b066" }}
+            >
+              협업
+            </span>
+            </div>
+            ): (<span
               className="tool-area-tag font-mono text-[9.5px] tracking-[0.08em] uppercase py-1.5 px-2.5 border rounded-full bg-white/[.02] justify-self-start whitespace-nowrap"
               style={{ color: t.catColor, borderColor: t.catColor }}
             >
               {t.cat}
-            </span>
+            </span>)}
             <div className="tool-area-level grid grid-cols-[1fr_28px] gap-3 items-center">
               <div className="relative h-[5px] bg-line-2 rounded-full overflow-hidden">
                 <div
@@ -130,7 +145,7 @@ export default function Skills() {
                   style={{ width: `${t.level}%` }}
                 />
               </div>
-              <div className="font-mono text-[10.5px] text-ink-3 text-right tracking-[0.04em]">
+              <div className="font-mono text-[10.5px] text-accent-2 text-right tracking-[0.04em]">
                 {t.level}
               </div>
             </div>
