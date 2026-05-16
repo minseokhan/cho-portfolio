@@ -80,7 +80,7 @@ export default function Profile() {
         <p className="text-[clamp(14.5px,1.2vw,16px)] text-ink-2 max-w-[56ch] mt-5 leading-[1.65]" data-reveal data-reveal-delay="1">
           저는 늘 &ldquo;어떻게 하면 효율적으로 해결할 수 있을까?&rdquo;를 고민하는 사람입니다.
         </p>
-        <p className="text-[clamp(14.5px,1.2vw,16px)] text-ink-2 max-w-[56ch] mt-5 leading-[1.65]" data-reveal data-reveal-delay="2">
+        <p className="text-[clamp(14.5px,1.2vw,16px)] text-ink-2 max-w-[56ch] mt-1.5 leading-[1.65]" data-reveal data-reveal-delay="2">
           문제의 본질을 고민하고 더 나은 방향을 실행합니다.
         </p>
         <p className="mt-[22px] font-mono text-[11.5px] tracking-[0.06em] text-accent-2" data-reveal data-reveal-delay="3">

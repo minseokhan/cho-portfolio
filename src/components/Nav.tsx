@@ -27,7 +27,7 @@ export default function Nav() {
           <span className="w-1.5 h-1.5 bg-accent rounded-full" />
           박초희 Portfolio
         </a>
-        <div className="flex gap-8 font-mono text-[11.5px] tracking-[0.1em] text-ink-2 max-[720px]:hidden">
+        <div className="flex gap-8 font-mono text-[13px] tracking-[0.1em] text-ink max-[720px]:hidden">
           <a href="#profile" className="py-1 transition-colors duration-150 hover:text-ink">Profile</a>
           <a href="#skills" className="py-1 transition-colors duration-150 hover:text-ink">Skills</a>
           <a href="#project" className="py-1 transition-colors duration-150 hover:text-ink">Project</a>

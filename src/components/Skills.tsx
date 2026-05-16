@@ -42,7 +42,7 @@ export default function Skills() {
         </h2>
       </SectionHead>
 
-      {/* Hard Skills */}
+      {/* Hard Skills - 주석 처리
       <SubTitleRow title="Hard Skills" meta="04" />
       <div className="grid grid-cols-4 gap-4 max-[980px]:grid-cols-2 max-[560px]:grid-cols-1">
         {HARD_SKILLS.map((s, i) => (
@@ -62,6 +62,7 @@ export default function Skills() {
           </div>
         ))}
       </div>
+      */}
 
       {/* Soft Skills */}
       <SubTitleRow title="Soft Skills" meta="04" className="mt-20" />

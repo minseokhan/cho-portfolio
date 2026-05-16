@@ -3,7 +3,7 @@ import { interTight, jetbrainsMono } from "@/lib/fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "박초희 — 서비스 기획자 / PM Portfolio",
+  title: "박초희 Portfolio",
   description:
     '"더 나은 방식"을 집요하게 고민하는 서비스 기획자 박초희의 포트폴리오입니다.',
 };
