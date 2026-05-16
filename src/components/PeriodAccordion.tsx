@@ -31,7 +31,7 @@ export default function PeriodAccordion({ items }: { items: PeriodAccordionItem[
                   onClick={() => setOpenIndex(isOpen ? null : i)}
                 >
                   <ChevronRight
-                    className={`w-3 h-3 text-ink-3 shrink-0 transition-transform duration-300 ease-[cubic-bezier(.2,.7,.2,1)] ${
+                    className={`w-3.5 h-3.5 text-accent-2 shrink-0 transition-transform duration-300 ease-[cubic-bezier(.2,.7,.2,1)] ${
                       isOpen ? "rotate-90 !text-accent" : ""
                     }`}
                   />
@@ -45,7 +45,7 @@ export default function PeriodAccordion({ items }: { items: PeriodAccordionItem[
                 {isOpen && (
                   <div className="pt-3 pb-1 pl-[26px] flex flex-col gap-3 animate-[taskBodyIn_.3s_cubic-bezier(.2,.7,.2,1)]">
                     {item.desc && (
-                      <p className="m-0 text-[13.5px] text-ink-2 leading-[1.7] max-w-[70ch] pl-3.5 border-l-2 border-line-2">
+                      <p className="m-0 text-[13.5px] text-ink-2 leading-[1.7] max-w-[70ch] pl-3.5 border-l-2 border-line-2 whitespace-pre-line">
                         {item.desc}
                       </p>
                     )}

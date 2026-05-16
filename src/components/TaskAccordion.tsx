@@ -24,7 +24,7 @@ export default function TaskAccordion({ tasks }: { tasks: Task[] }) {
               onClick={() => setOpenIndex(isOpen ? null : i)}
             >
               <ChevronRight
-                className={`w-3.5 h-3.5 text-ink-3 shrink-0 transition-transform duration-300 ease-[cubic-bezier(.2,.7,.2,1)] ${
+                className={`w-3.5 h-3.5 text-accent-2 shrink-0 transition-transform duration-300 ease-[cubic-bezier(.2,.7,.2,1)] ${
                   isOpen ? "rotate-90 !text-accent" : ""
                 }`}
               />
