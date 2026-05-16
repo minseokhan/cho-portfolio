@@ -26,7 +26,7 @@ export default function Contact() {
       </div>
 
       {/* Channels */}
-      <div className="channel-grid mt-[70px] grid grid-cols-4 border-t border-line max-[760px]:grid-cols-2">
+      <div className="channel-grid mt-[70px] grid grid-cols-3 border-t border-line max-[760px]:grid-cols-1">
         <div className="group py-[26px] px-3 border-r border-b border-line transition-colors duration-150 hover:bg-surface" data-reveal data-reveal-delay="1">
           <a
             className="w-full h-full flex flex-col gap-2"  href="mailto:cheepark926@gmail.com"
@@ -43,15 +43,6 @@ export default function Contact() {
           >
             <span className="font-mono text-[10px] text-accent-2 tracking-[0.2em] uppercase">Phone</span>
             <span className="font-display text-[15.5px] font-medium tracking-[-0.01em] text-ink group-hover:text-accent">+82 10-9921-7392</span>
-          </a>
-        </div>
-        <div className="group py-[26px] px-3 border-r border-b border-line transition-colors duration-150 hover:bg-surface" data-reveal data-reveal-delay="3">
-          <a
-            className="w-full h-full flex flex-col gap-2"  href="https://outgoing-samba-41e.notion.site/234f536595ff80f290c5fffdae2c5336"
-            target="_blank" rel="noreferrer"
-          >
-            <span className="font-mono text-[10px] text-accent-2 tracking-[0.2em] uppercase">Notion</span>
-            <span className="font-display text-[15.5px] font-medium tracking-[-0.01em] text-ink group-hover:text-accent">이력서 원본</span>
           </a>
         </div>
         <div

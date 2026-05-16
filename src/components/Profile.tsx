@@ -1,6 +1,7 @@
 import SectionHead from "./SectionHead";
 import SubTitleRow from "./SubTitleRow";
 import PeriodList from "./PeriodList";
+import PeriodAccordion from "./PeriodAccordion";
 import TaskAccordion from "./TaskAccordion";
 
 const TASKS = [
@@ -40,19 +41,57 @@ const EDUCATION = [
 ];
 
 const ACTIVITIES = [
-  { period: "2025.09 — 2026.02", title: "IT 개발 연합 동아리 UMC · PM 파트" },
-  { period: "2025.06 — 2026.02", title: "SMU 창업 동아리 4기" },
-  { period: "2023.03 — 2024.06", title: "숙명여자대학교 유학생 지원 동아리" },
-  { period: "2023.03 — 2024.06", title: "푸른아시아 대학생 환경 기자단" },
-  { period: "2023.03 — 2024.06", title: "숙명여자대학교 환경 리더십 그룹 SEM 홍보부 임원진" },
+  {
+    period: "2025.09 — 2026.02",
+    title: "IT 개발 연합 동아리 UMC · PM 파트",
+    desc: "12주간 PM 파트 스터디를 통해 체계적으로 서비스 기획 방법을 배웠습니다. 매 주차 성실하고 완성도 높은 과제물로 '베스트 파트원상'을 수상하기도 했습니다. 해당 활동을 통해 데이터 기반 사고력, 피그마 활용치, 다양한 직군과의 협업 능력을 단기간에 빠르게 습득할 수 있었습니다.",
+  },
+  {
+    period: "2025.06 — 2026.02",
+    title: "SMU 창업 동아리 4기",
+    desc: "환경 리더십그룹 활동을 하며 얻은 문제의식을 바탕으로, 5명의 팀원들과 패스트 패션 문제 해결을 위한 '코디코드' 서비스를 기획하였습니다. K-pop 콘서트 드레스코드 의상 대여 서비스를 외국인 대상 사업으로 구상했으며, 수요 검증 과정에서 발견한 한계를 바탕으로 여러 차례 아이디어 피벗을 시도했습니다. 비록 최종적으로 팀은 해체되었지만, 직접 현장 설문조사를 진행하며 수요 검증과 빠른 실행의 중요성을 배울 수 있었습니다.",
+  },
+  {
+    period: "2023.03 — 2024.06",
+    title: "숙명여자대학교 유학생 지원 동아리",
+    desc: "Global Peer mentor로서 외국인 유학생들이 한국문화 및 학교생활 적응을 위한 활동을 진행했습니다. 유학생의 멘토가 되어 전공수업 및 한국어 자격증 공부를 도와주었고, 다양한 친목 활동을 통해 다국적 친구를 사귈 수 있는 기회가 되었습니다.",
+  },
+  {
+    period: "2023.03 — 2024.06",
+    title: "푸른아시아 대학생 환경 기자단",
+  },
+  {
+    period: "2023.03 — 2024.06",
+    title: "숙명여자대학교 환경 리더십 그룹 SEM 홍보부 임원진",
+    desc: "환경보호와 관련한 활동을 하는 학생지원팀 소속 리더십그룹으로, 외부단체 및 기업과 협력하여 다양한 교내외 환경 프로젝트를 진행하고, 캠페인을 기획하며, 자체적인 학술 탐구를 진행했습니다. 또한 지난 1년간 홍보부 임원진으로 활동하여 리더십그룹 SNS계정 및 홍보 자료를 제작하고, 리더로서 팀원들을 이끄는 역할을 했습니다.",
+  },
 ];
 
 const AWARDS = [
-  { period: "2026.02", title: "UMC 9th Demo Day · 최우수상 🏅" },
-  { period: "2025.08", title: "숙명여대 스마트푸드테크 AI 창업 아이디어 부트캠프 · 우수상 🏅" },
-  { period: "2024.12", title: "<N개의 서울> 용산구 푸드투어 기획 및 운영 과정 수료" },
-  { period: "2024.06", title: "미스터리 쇼퍼(서비스 평가사) 교육 수료" },
-  { period: "2023.11", title: "디지털 인문학 콘텐츠 개발 연구 발표회 · 우수상 🏅" },
+  {
+    period: "2026.02",
+    title: "UMC 9th Demo Day · 최우수상 🏅",
+    desc: "IT 개발 연합 동아리 UMC에서 '내폼리폼' 서비스를 기획하고 개발, 배포한 프로젝트입니다. 총 73개의 팀이 Demoday에 참여하였으며, 높은 완성도로 최우수상을 수상하였습니다.",
+    images: ["/assets/umc-award.png", "/assets/myform-booth.png"],
+  },
+  {
+    period: "2025.08",
+    title: "숙명여대 스마트푸드테크 AI 창업 아이디어 부트캠프 · 우수상 🏅",
+    desc: "푸드테크/AI를 주제로 1박 2일 동안 '레시팜' 서비스를 기획했습니다. '레시팜'은 지역농가와 소상공인을 레시피로 잇는 B2B 로컬푸드 직거래 플랫폼으로, 지역 농산물 소비의 부족과 소상공인이 겪는 식재료 수급의 어려움에 집중하였습니다.",
+  },
+  {
+    period: "2024.12",
+    title: "<N개의 서울> 용산구 푸드투어 기획 및 운영 과정 수료",
+  },
+  {
+    period: "2024.06",
+    title: "미스터리 쇼퍼(서비스 평가사) 교육 수료",
+  },
+  {
+    period: "2023.11",
+    title: "디지털 인문학 콘텐츠 개발 연구 발표회 · 우수상 🏅",
+    desc: "디지털 인문학 콘텐츠 개발 연구 발표회에서 우수상을 수상하였습니다. 개발 콘텐츠로는 메타버스를 활용한 소상공인 투자 어플리케이션을 기획하였습니다. 현재 소상공인이 겪는 어려움을 이해하고, 그에 맞는 솔루션을 메타버스라는 가상세계를 장치로 활용하여 혁신적으로 솔루션을 제안하기 위해 노력하였습니다.",
+  },
 ];
 
 const CERTS = [
@@ -125,7 +164,7 @@ export default function Profile() {
         </div>
         <div data-reveal data-reveal-delay="1">
           <SubTitleRow title="Activities" meta="활동" />
-          <PeriodList items={ACTIVITIES} />
+          <PeriodAccordion items={ACTIVITIES} />
         </div>
       </div>
 
@@ -133,7 +172,7 @@ export default function Profile() {
       <div className="grid grid-cols-2 gap-10 mt-[60px] max-[800px]:grid-cols-1 max-[800px]:gap-[50px]">
         <div data-reveal>
           <SubTitleRow title="Awards" meta="수상·수료" />
-          <PeriodList items={AWARDS} />
+          <PeriodAccordion items={AWARDS} />
         </div>
         <div data-reveal data-reveal-delay="1">
           <SubTitleRow title="Certifications" meta="자격" />
