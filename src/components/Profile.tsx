@@ -80,7 +80,7 @@ export default function Profile() {
         <p className="text-[clamp(14.5px,1.2vw,16px)] text-ink-2 max-w-[56ch] mt-5 leading-[1.65]" data-reveal data-reveal-delay="1">
           저는 늘 &ldquo;어떻게 하면 효율적으로 해결할 수 있을까?&rdquo;를 고민하는 사람입니다.
         </p>
-        <p className="text-[clamp(14.5px,1.2vw,16px)] text-ink-2 max-w-[56ch] mt-1.5 leading-[1.65]" data-reveal data-reveal-delay="2">
+        <p className="text-[clamp(14.5px,1.2vw,16px)] text-ink-2 max-w-[56ch] leading-[1.65]" data-reveal data-reveal-delay="2">
           문제의 본질을 고민하고 더 나은 방향을 실행합니다.
         </p>
         <p className="mt-[22px] font-mono text-[11.5px] tracking-[0.06em] text-accent-2" data-reveal data-reveal-delay="3">
@@ -106,7 +106,7 @@ export default function Profile() {
               사업기획팀 PM 인턴
             </div>
             <p className="text-[14px] text-ink-2 leading-[1.65] max-w-[60ch] m-0 mb-3.5">
-              IT 직무 부트캠프의 교육과정 PM 인턴으로 근무. 주도적으로 타임라인을 만들고 데이터로 효용을 검증하며 일한 경험입니다.
+              IT 직무 부트캠프의 교육 PM 인턴으로 약 2개월간 근무하였습니다. <br /> 교육 상품 기획 및 운영 업무를 수행하며 하나의 교육 상품이 만들어지는 사이클을 경험했고, 운영 업무를 통해 고객 관리 및 커뮤니케이션 역량을 향상시켰습니다.
             </p>
             <div className="inline-flex items-center gap-2.5 mt-1.5 mb-2 font-mono text-[11px] tracking-[0.06em] text-ink-2">
               <span className="text-accent text-[8px]">●</span>
