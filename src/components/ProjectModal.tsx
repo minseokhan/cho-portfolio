@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { PROJECTS } from "@/data/projects";
-import { ArrowLeft, ArrowUpRight, CloseX } from "./Icons";
+import { ArrowLeft, ArrowUpRight, ChevronLeft, CloseX } from "./Icons";
 
 interface ProjectModalProps {
   projectId: string | null;
@@ -24,10 +24,24 @@ export default function ProjectModal({ projectId, onClose }: ProjectModalProps) 
     return () => document.removeEventListener("keydown", onKey);
   }, [onClose]);
 
+  const [lightboxImages, setLightboxImages] = useState<string[]>([]);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const screenshots = project?.screenshots ?? [];
+
+  const openLightbox = (images: string[], startIndex: number) => {
+    setLightboxImages(images);
+    setLightboxIndex(startIndex);
+  };
+  const closeLightbox = () => {
+    setLightboxIndex(null);
+    setLightboxImages([]);
+  };
+
   let sn = 1;
   const ey = () => String(sn++).padStart(2, "0");
 
   return (
+    <>
     <AnimatePresence>
       {project && (
         <motion.div
@@ -71,7 +85,7 @@ export default function ProjectModal({ projectId, onClose }: ProjectModalProps) 
               </div>
               <h1 className="font-display font-medium text-[clamp(36px,5vw,64px)] tracking-[-0.04em] leading-[1.02] m-0 text-ink">{project.title}</h1>
               <p className="mt-3.5 font-display text-[clamp(15px,1.5vw,20px)] font-normal tracking-[-0.015em] text-accent leading-[1.45]">{project.sub}</p>
-              <p className="mt-6 text-[15px] text-ink-2 leading-[1.7] max-w-[64ch]">{project.tagline}</p>
+              <p className="mt-6 text-[15px] text-ink-2 leading-[1.7] max-w-[80ch]">{project.tagline}</p>
 
               {/* Meta grid */}
               <div className="grid grid-cols-4 gap-3.5 mt-9 border-t border-b border-line py-5 max-[700px]:grid-cols-2">
@@ -93,7 +107,7 @@ export default function ProjectModal({ projectId, onClose }: ProjectModalProps) 
             <div className="p-[clamp(24px,4vw,48px)_clamp(24px,5vw,64px)_clamp(40px,6vw,72px)]">
               {/* Overview */}
               <DetailSection eyebrow={`${ey()} · Overview`} title="서비스 소개" first>
-                {project.overview.map((t, i) => <p key={i} className="text-[15px] text-ink-2 leading-[1.75] max-w-[70ch] m-0 mb-3.5 last:mb-0">{t}</p>)}
+                {project.overview.map((t, i) => <p key={i} className="text-[15px] text-ink-2 leading-[1.75] max-w-[80ch] m-0 mb-3.5 last:mb-0">{t}</p>)}
                 {project.links && (
                   <div className="flex flex-wrap gap-2.5 mt-5">
                     {project.links.map((l) => (
@@ -102,6 +116,20 @@ export default function ProjectModal({ projectId, onClose }: ProjectModalProps) 
                       >
                         {l.label} <ArrowUpRight />
                       </a>
+                    ))}
+                  </div>
+                )}
+                {project.screenshots && (
+                  <div className="mt-7 flex gap-3 overflow-x-auto pb-3 -mx-2 px-2">
+                    {project.screenshots.map((src, i) => (
+                      /* eslint-disable-next-line @next/next/no-img-element */
+                      <img
+                        key={i}
+                        src={src}
+                        alt={`${project.title} 스크린샷 ${i + 1}`}
+                        className="h-[240px] rounded-xl border border-line-2 object-contain shrink-0 cursor-pointer transition-all duration-200 hover:border-accent hover:scale-[1.02]"
+                        onClick={() => openLightbox(screenshots, i)}
+                      />
                     ))}
                   </div>
                 )}
@@ -135,9 +163,27 @@ export default function ProjectModal({ projectId, onClose }: ProjectModalProps) 
                 <DetailSection eyebrow={`${ey()} · Features`} title="핵심 기능 (MVP)">
                   <div className="grid grid-cols-2 gap-3 max-[700px]:grid-cols-1">
                     {project.features.map((f) => (
-                      <div key={f.name} className="p-[20px_22px] bg-surface border border-line rounded-xl">
-                        <h4 className="font-display font-medium text-[14.5px] tracking-[-0.01em] text-accent m-0 mb-2">{f.name}</h4>
-                        <p className="text-[13px] text-ink-2 leading-[1.6] m-0">{f.desc}</p>
+                      <div
+                        key={f.name}
+                        className={`p-[20px_22px] bg-surface border border-line rounded-xl transition-all duration-200 ${
+                          f.images ? "cursor-pointer hover:border-accent hover:bg-accent/[.04] hover:-translate-y-0.5 group" : ""
+                        }`}
+                        onClick={() => f.images && openLightbox(f.images, 0)}
+                      >
+                        <div className="flex items-center justify-between">
+                          <h4 className="font-display font-medium text-[15.5px] tracking-[-0.01em] text-accent m-0 mb-2">{f.name}</h4>
+                          {f.images && (
+                            <span className="font-mono text-[10px] tracking-[0.06em] text-ink-3 group-hover:text-accent transition-colors flex items-center gap-1">
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                                <rect x="3" y="3" width="18" height="18" rx="2" />
+                                <circle cx="8.5" cy="8.5" r="1.5" />
+                                <polyline points="21 15 16 10 5 21" />
+                              </svg>
+                              {f.images.length > 1 ? `${f.images.length}장` : "1장"}
+                            </span>
+                          )}
+                        </div>
+                        <p className="text-[15px] text-ink-2 leading-[1.6] m-0 whitespace-pre-line">{f.desc}</p>
                       </div>
                     ))}
                   </div>
@@ -165,7 +211,7 @@ export default function ProjectModal({ projectId, onClose }: ProjectModalProps) 
 
               {project.lessons && (
                 <DetailSection eyebrow={`${ey()} · Retrospective`} title="배운 점 · 아쉬웠던 점">
-                  {project.lessons.map((l, i) => <p key={i} className="text-[15px] text-ink-2 leading-[1.75] max-w-[70ch] m-0 mb-3.5 last:mb-0">{l}</p>)}
+                  {project.lessons.map((l, i) => <p key={i} className="text-[15px] text-ink-2 leading-[1.75] max-w-[92ch] m-0 mb-3.5 last:mb-0 whitespace-pre-line">{l}</p>)}
                 </DetailSection>
               )}
 
@@ -182,6 +228,52 @@ export default function ProjectModal({ projectId, onClose }: ProjectModalProps) 
         </motion.div>
       )}
     </AnimatePresence>
+
+    {/* Lightbox */}
+    {lightboxIndex !== null && lightboxImages[lightboxIndex] && (
+      <div
+        className="fixed inset-0 bg-black/[.85] z-[200] flex items-center justify-center"
+      >
+        {/* X close button */}
+        <button
+          className="absolute top-5 right-5 w-12 h-12 rounded-full border border-transparent bg-transparent text-white/70 flex items-center justify-center cursor-pointer z-[210] transition-all hover:bg-white/15 hover:text-white"
+          onClick={closeLightbox}
+          aria-label="Close"
+        >
+          <CloseX size={22} />
+        </button>
+
+        {/* Prev arrow */}
+        {lightboxIndex > 0 && (
+          <button
+            className="absolute left-5 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full border border-transparent bg-transparent text-white/70 flex items-center justify-center cursor-pointer z-[210] transition-all hover:bg-white/15 hover:text-white"
+            onClick={() => setLightboxIndex(lightboxIndex - 1)}
+            aria-label="Previous"
+          >
+            <ChevronLeft size={28} />
+          </button>
+        )}
+
+        {/* Next arrow */}
+        {lightboxIndex < lightboxImages.length - 1 && (
+          <button
+            className="absolute right-5 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full border border-transparent bg-transparent text-white/70 flex items-center justify-center cursor-pointer z-[210] transition-all hover:bg-white/15 hover:text-white rotate-180"
+            onClick={() => setLightboxIndex(lightboxIndex + 1)}
+            aria-label="Next"
+          >
+            <ChevronLeft size={28} />
+          </button>
+        )}
+
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={lightboxImages[lightboxIndex]}
+          alt="확대 이미지"
+          className="max-h-[85vh] max-w-[90vw] object-contain rounded-xl"
+        />
+      </div>
+    )}
+    </>
   );
 }
 
@@ -199,7 +291,7 @@ function BulletList({ items }: { items: string[] }) {
   return (
     <ul className="m-0 p-0 list-none flex flex-col gap-2.5">
       {items.map((item, i) => (
-        <li key={i} className="bullet-item grid grid-cols-[18px_1fr] gap-2.5 text-[14px] text-ink-2 leading-[1.65] max-w-[72ch]">
+        <li key={i} className="bullet-item grid grid-cols-[18px_1fr] gap-2.5 text-[15px] text-ink-2 leading-[1.65] max-w-[80ch]">
           {item}
         </li>
       ))}
