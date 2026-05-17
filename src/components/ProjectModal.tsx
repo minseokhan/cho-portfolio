@@ -211,7 +211,7 @@ export default function ProjectModal({ projectId, onClose }: ProjectModalProps) 
 
               {project.lessons && (
                 <DetailSection eyebrow={`${ey()} · Retrospective`} title="배운 점 · 아쉬웠던 점">
-                  {project.lessons.map((l, i) => <p key={i} className="text-[15px] text-ink-2 leading-[1.75] max-w-[92ch] m-0 mb-3.5 last:mb-0 whitespace-pre-line">{l}</p>)}
+                  <BulletList items={project.lessons} />
                 </DetailSection>
               )}
 
@@ -291,7 +291,7 @@ function BulletList({ items }: { items: string[] }) {
   return (
     <ul className="m-0 p-0 list-none flex flex-col gap-2.5">
       {items.map((item, i) => (
-        <li key={i} className="bullet-item grid grid-cols-[18px_1fr] gap-2.5 text-[15px] text-ink-2 leading-[1.65] max-w-[80ch]">
+        <li key={i} className="bullet-item grid grid-cols-[18px_1fr] gap-2.5 text-[15px] text-ink-2 leading-[1.65] max-w-[100ch] whitespace-pre-line">
           {item}
         </li>
       ))}
